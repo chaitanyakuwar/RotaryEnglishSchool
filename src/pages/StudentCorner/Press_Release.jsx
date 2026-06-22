@@ -2,7 +2,6 @@ import Navbar from "../../components/common/Navbar"
 import news1 from "../../assets/images/news1.jpg";
 import news2 from "../../assets/images/news2.jpg";
 import news3 from "../../assets/images/news3.jpg";
-import { RiArrowRightLine } from "react-icons/ri";
 import Heading from "../../components/common/Heading";
 
 const Press_Release = () => {
@@ -120,31 +119,16 @@ const Press_Release = () => {
                         {item.title}
                       </h3>
 
-                      <p className="text-gray-600 leading-7 text-sm mb-6">
+                      <p className="text-gray-600 leading-7 text-sm mb-2">
                         {item.description}
                       </p>
-
-                      {/* Button */}
-                      <button
-                        className="
-                    flex items-center gap-2
-                    text-[#003B6D]
-                    font-semibold
-                    hover:text-[#F4C300]
-                    transition duration-300
-                    cursor-pointer
-                  "
-                      >
-                        Read Full News
-                        <RiArrowRightLine className="text-xl group-hover:translate-x-2 transition duration-300" />
-                      </button>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Bottom Button */}
-              <div className="text-center mt-14">
+              {/* <div className="text-center mt-14">
                 <button
                   className="
               bg-[#003B6D]
@@ -159,7 +143,7 @@ const Press_Release = () => {
                 >
                   View All Press Releases
                 </button>
-              </div>
+              </div> */}
             </div>
           </section>
         </section>

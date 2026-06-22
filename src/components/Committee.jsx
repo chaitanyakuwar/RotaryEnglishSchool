@@ -1,213 +1,225 @@
-const committeeMembers = [
+import { FaUserTie, FaArrowRight } from "react-icons/fa";
+import { RiPhoneLine, RiMapPinLine, RiBriefcaseLine } from "react-icons/ri";
+
+const committee = [
   {
     id: 1,
     name: "Er. Himanshu G. Shah",
     designation: "President",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a",
+    image: "https://randomuser.me/api/portraits/men/41.jpg",
     featured: true,
+    occupation: "Engineer (President, Rotary English School)",
+    occupationAddress:
+      "22, Chaitanya Colony, Dondaicha, Tal. Shindkheda, Dist. Dhule (MS)",
+    phoneOffice: "9422286244",
+    phoneResidence: "02586-244411",
   },
+
   {
     id: 2,
     name: "Dr. Rajesh Patil",
     designation: "Vice President",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43d",
+    image: "https://randomuser.me/api/portraits/men/35.jpg",
+    occupation: "Engineer (President, Rotary English School)",
+    occupationAddress:
+      "22, Chaitanya Colony, Dondaicha, Tal. Shindkheda, Dist. Dhule (MS)",
+    phoneOffice: "9422286244",
+    phoneResidence: "02586-244411",
   },
+
   {
     id: 3,
-    name: "Mrs. Anjali Deshmukh",
+    name: "Mrs. Anjali Patil",
     designation: "Secretary",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    occupation: "Engineer (President, Rotary English School)",
+    occupationAddress:
+      "22, Chaitanya Colony, Dondaicha, Tal. Shindkheda, Dist. Dhule (MS)",
+    phoneOffice: "9422286244",
+    phoneResidence: "02586-244411",
   },
+
   {
     id: 4,
-    name: "Mr. Amit Jain",
-    designation: "Committee Member",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
+    name: "Mr. Amit Shah",
+    designation: "Treasurer",
+    image: "https://randomuser.me/api/portraits/men/18.jpg",
+    occupation: "Engineer (President, Rotary English School)",
+    occupationAddress:
+      "22, Chaitanya Colony, Dondaicha, Tal. Shindkheda, Dist. Dhule (MS)",
+    phoneOffice: "9422286244",
+    phoneResidence: "02586-244411",
   },
+
   {
     id: 5,
-    name: "Mrs. Sneha Patil",
-    designation: "Committee Member",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+    name: "Mrs. Sneha Kulkarni",
+    designation: "Joint Secretary",
+    image: "https://randomuser.me/api/portraits/women/63.jpg",
+    occupation: "Engineer (President, Rotary English School)",
+    occupationAddress:
+      "22, Chaitanya Colony, Dondaicha, Tal. Shindkheda, Dist. Dhule (MS)",
+    phoneOffice: "9422286244",
+    phoneResidence: "02586-244411",
   },
+
   {
     id: 6,
-    name: "Mr. Rahul Shah",
+    name: "Mr. Rahul Jain",
     designation: "Committee Member",
-    image: "https://images.unsplash.com/photo-1504593811423-6dd665756598",
+    image: "https://randomuser.me/api/portraits/men/52.jpg",
+    occupation: "Engineer (President, Rotary English School)",
+    occupationAddress:
+      "22, Chaitanya Colony, Dondaicha, Tal. Shindkheda, Dist. Dhule (MS)",
+    phoneOffice: "9422286244",
+    phoneResidence: "02586-244411",
   },
+
   {
     id: 7,
-    name: "Mrs. Pooja Kulkarni",
+    name: "Mrs. Pooja Patil",
     designation: "Committee Member",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
+    image: "https://randomuser.me/api/portraits/women/67.jpg",
+    occupation: "Engineer (President, Rotary English School)",
+    occupationAddress:
+      "22, Chaitanya Colony, Dondaicha, Tal. Shindkheda, Dist. Dhule (MS)",
+    phoneOffice: "9422286244",
+    phoneResidence: "02586-244411",
+  },
+
+  {
+    id: 8,
+    name: "Mr. Mahesh Deshmukh",
+    designation: "Committee Member",
+    image: "https://randomuser.me/api/portraits/men/62.jpg",
+    occupation: "Engineer (President, Rotary English School)",
+    occupationAddress:
+      "22, Chaitanya Colony, Dondaicha, Tal. Shindkheda, Dist. Dhule (MS)",
+    phoneOffice: "9422286244",
+    phoneResidence: "02586-244411",
   },
 ];
 
+const featured = committee.find((item) => item.featured);
+
+const others = committee.filter((item) => !item.featured);
+
 const Committee = () => {
-  const president = committeeMembers.find((m) => m.featured);
-  const others = committeeMembers.filter((m) => !m.featured);
-
   return (
-    <section className="py-24 bg-[radial-gradient(circle_at_top,#EAF5FF,white)] overflow-hidden">
+    <section className="py-10 bg-gradient-to-b from-[#F5FAFF] via-white to-[#F5FAFF]">
       <div className="max-w-7xl mx-auto px-6">
+        {/* PRESIDENT */}
 
-        {/* President Section */}
-        <div className="relative overflow-hidden rounded-[40px] bg-gradient-to-r from-[#003B6D] via-[#005DAA] to-[#003B6D] shadow-[0_30px_80px_rgba(0,59,109,0.25)]">
+        <div className="relative overflow-hidden rounded-[35px] bg-gradient-to-r from-[#003B6D] to-[#005DAA] p-10 mt-16 shadow-2xl">
+          <div className="absolute right-0 top-0 w-64 h-64 bg-[#F4C300]/20 rounded-full blur-3xl" />
 
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#F4C300] via-white to-[#F4C300]"></div>
-
-          <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-white/10"></div>
-
-          <div className="absolute -bottom-16 -left-16 w-52 h-52 rounded-full bg-[#F4C300]/20"></div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center p-10 lg:p-16">
-
-            {/* Content */}
-            <div>
-
-              <span className="inline-block bg-[#F4C300] text-[#003B6D] px-5 py-2 rounded-full font-semibold mb-6">
-                President
-              </span>
-
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
-                {president.name}
-              </h2>
-
-              <p className="text-[#F4C300] text-xl font-medium mb-6">
-                President, Dondaicha Education Society
-              </p>
-
-              <p className="text-blue-100 text-lg leading-8 mb-8">
-                Leading the institution with vision, commitment and excellence.
-                Dedicated to nurturing young minds and creating opportunities
-                for every student to achieve their highest potential.
-              </p>
-
-              <button
-                className="
-                bg-[#F4C300]
-                text-[#003B6D]
-                px-8
-                py-3
-                rounded-xl
-                font-semibold
-                hover:bg-white
-                hover:scale-105
-                transition-all
-                duration-300
-                "
-              >
-                View Profile
-              </button>
-            </div>
-
-            {/* Image */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center">
               <div className="relative group">
-
-                <div className="absolute inset-0 bg-[#F4C300] rounded-full blur-3xl opacity-30"></div>
-
                 <img
-                  src={president.image}
-                  alt={president.name}
-                  className="
-                  relative
-                  w-[320px]
-                  h-[320px]
-                  object-cover
-                  rounded-full
-                  border-[10px]
-                  border-white
-                  shadow-2xl
-                  transition-all
-                  duration-500
-                  group-hover:scale-105
-                  group-hover:rotate-2
-                  "
+                  src={featured.image}
+                  alt=""
+                  className="w-80 h-80 rounded-full object-cover border-[10px] border-white transition duration-500 group-hover:rotate-3 group-hover:scale-105"
                 />
+
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#F4C300] text-[#003B6D] px-5 py-2 rounded-full font-bold">
+                  President
+                </div>
               </div>
             </div>
 
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full text-white mb-5">
+                <FaUserTie />
+                Leadership
+              </div>
+
+              <h2 className="text-4xl font-bold text-white">{featured.name}</h2>
+
+              <p className="text-[#F4C300] font-semibold text-lg mt-2">
+                {featured.designation}
+              </p>
+
+              <p className="text-blue-100 leading-8 mt-6">
+                Committed to excellence in education and dedicated to shaping a
+                brighter future through innovation, discipline, and quality
+                learning opportunities for every student.
+              </p>
+
+              <button className="mt-8 bg-[#F4C300] hover:bg-white text-[#003B6D] px-6 py-3 rounded-xl font-semibold transition flex items-center gap-2">
+                View Profile
+                <FaArrowRight />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Other Members */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
+        {/* OTHER MEMBERS */}
 
-          {others.map((member) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
+          {others.map((item) => (
             <div
-              key={member.id}
-              className="
-              bg-white
-              rounded-[30px]
-              p-8
-              text-center
-              border
-              border-[#D6E8F7]
-              shadow-[0_10px_30px_rgba(0,59,109,0.08)]
-              hover:shadow-[0_25px_50px_rgba(0,93,170,0.18)]
-              hover:-translate-y-3
-              hover:rotate-[1deg]
-              transition-all
-              duration-500
-              group
-              "
+              key={item.id}
+              className="bg-white rounded-3xl shadow-lg hover:shadow-2xl border border-blue-100 hover:-translate-y-3 hover:rotate-1 transition-all duration-500 overflow-hidden"
             >
-              <div className="relative mx-auto w-36 h-36">
+              <div className="bg-gradient-to-r from-[#003B6D] to-[#005DAA] h-24" />
 
-                <div className="absolute inset-0 rounded-full bg-[#F4C300]/20 scale-110"></div>
-
+              <div className="-mt-14 flex justify-center">
                 <img
-                  src={member.image}
-                  alt={member.name}
-                  className="
-                  relative
-                  w-full
-                  h-full
-                  rounded-full
-                  object-cover
-                  border-4
-                  border-[#F4C300]
-                  transition-all
-                  duration-500
-                  group-hover:scale-110
-                  "
+                  src={item.image}
+                  className="w-28 h-28 rounded-full object-cover border-[6px] border-white transition duration-500 hover:scale-110"
                 />
               </div>
 
-              <h3 className="text-xl font-bold text-[#003B6D] mt-6">
-                {member.name}
-              </h3>
+              <div className="p-5 text-center">
+                <h3 className="text-xl font-bold text-[#003B6D]">
+                  {item.name}
+                </h3>
 
-              <p className="text-[#005DAA] font-semibold mt-2">
-                {member.designation}
-              </p>
+                <div className="mt-3">
+                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-blue-100 text-blue-700 inline-block mb-1.5">
+                    {item.designation}
+                  </span>
+                </div>
 
-              <div className="w-16 h-1 bg-[#F4C300] mx-auto mt-4 rounded-full"></div>
+                <div className="w-14 h-1 bg-[#F4C300] rounded-full mx-auto my-3" />
 
-              <p className="text-gray-600 mt-5 text-sm leading-7">
-                Dedicated to supporting educational excellence and the holistic
-                development of every student through guidance and leadership.
-              </p>
+                <div className="space-y-3 text-sm">
+                  <div className="flex gap-1.5">
+                    <RiBriefcaseLine className="text-[#005DAA] mt-0.5 flex-shrink-0 text-base" />
+                    <p className="text-gray-600 leading-relaxed">
+                      {item.occupation}
+                    </p>
+                  </div>
+                  <div className="flex gap-1.5">
+                    <RiMapPinLine className="text-[#F4C300] mt-0.5 flex-shrink-0 text-base" />
+                    <p className="text-gray-500 text-xs leading-relaxed">
+                      {item.occupationAddress}
+                    </p>
+                  </div>
+                  <div className="flex justify-left gap-5 pt-1">
+                    {item.phoneOffice !== "—" && (
+                      <div className="flex items-center gap-2.5 text-xs text-gray-500">
+                        <RiPhoneLine className="text-[#005DAA]" />
+                        <span>{item.phoneOffice}</span>
+                      </div>
+                    )}
+                    {item.phoneResidence !== "—" && (
+                      <div className="flex items-center gap-2.5 text-xs text-gray-500">
+                        <RiPhoneLine className="text-emerald-500" />
+                        <span>{item.phoneResidence}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
 
-              <button
-                className="
-                mt-6
-                text-[#005DAA]
-                font-semibold
-                hover:text-[#F4C300]
-                transition-all
-                duration-300
-                "
-              >
-                View Profile →
-              </button>
+                {/* <p className="text-[#005DAA] font-medium mt-2">
+                  {item.designation}
+                </p> */}
+              </div>
             </div>
           ))}
-
         </div>
-
       </div>
     </section>
   );

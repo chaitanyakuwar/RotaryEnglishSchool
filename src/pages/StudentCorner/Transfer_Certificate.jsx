@@ -1,12 +1,11 @@
 import Heading from "../../components/common/Heading";
 import Navbar from "../../components/common/Navbar";
-import { useState } from "react";
+import TranferCerticate from "../../assets/images/TC.png";
 import {
   RiFileTextLine,
   RiDownloadLine,
   RiCheckboxCircleLine,
   RiTimeLine,
-  RiUserLine,
   RiPhoneLine,
   RiMailLine,
   RiInformationLine,
@@ -73,22 +72,8 @@ const tcFields = [
   "Remarks (if any)",
 ];
 
+const Tc = [{ image: TranferCerticate, pdf: TranferCerticate }];
 const Transfer_Certificate = () => {
-      const [showForm, setShowForm] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({
-    studentName: "",
-    admissionNo: "",
-    class: "",
-    parentName: "",
-    phone: "",
-    reason: "",
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
   return (
     <>
       <section>
@@ -102,534 +87,274 @@ const Transfer_Certificate = () => {
           />
         </div>
         <section
-            className="py-20 overflow-hidden"
-            style={{
-              background:
-                "linear-gradient(160deg,#F8FAFC 0%,#EFF6FF 60%,#F8FAFC 100%)",
-              fontFamily: "'DM Sans',sans-serif",
-            }}
-          >
-            <div className="max-w-6xl mx-auto px-6">
-              {/* ── Top 2-col layout ── */}
-              <div className="grid md:grid-cols-2 gap-8 mb-10">
-                {/* LEFT — TC Sample Preview */}
-                <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <RiFileTextLine className="text-[#1A56A0] text-xl" />
-                    <h3 className="font-bold text-[#0B1F3A] text-base">
-                      Sample Certificate
-                    </h3>
-                  </div>
-                  <div
-                    className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg cursor-pointer group relative"
-                    style={{ background: "white" }}
-                  >
-                    {/* TC Mock-up */}
-                    <div
-                      className="p-6"
-                      style={{ fontFamily: "'Georgia', serif" }}
-                    >
-                      {/* School Header */}
-                      <div className="text-center border-b-2 border-[#0B1F3A] pb-4 mb-4">
-                        <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">
-                          Dondaicha Education Society's
-                        </p>
-                        <h4
-                          className="text-lg font-black text-[#0B1F3A]"
-                          style={{ fontFamily: "'Playfair Display',serif" }}
-                        >
-                          Smt. Mandakini Tongaonkar
-                          <br />
-                          Rotary English Medium School
-                        </h4>
-                        <p className="text-xs text-gray-500 mt-1">
-                          S.No. 356/2, Malpur Road, Dondaicha, Dist: Dhule –
-                          425408
-                        </p>
-                        <p className="text-xs text-gray-400">
-                          CBSE Affiliation No: XXXXXXX
-                        </p>
-                      </div>
-
-                      {/* TC Title */}
-                      <div className="text-center mb-4">
-                        <div className="inline-block border-2 border-[#0B1F3A] px-8 py-1.5 rounded">
-                          <p className="text-sm font-black uppercase tracking-[3px] text-[#0B1F3A]">
-                            Transfer Certificate
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* TC No + Date row */}
-                      <div className="flex justify-between text-xs text-gray-500 mb-4">
-                        <span>TC No: ________</span>
-                        <span>Date: __ / __ / ______</span>
-                      </div>
-
-                      {/* TC Fields */}
-                      <div className="space-y-2">
-                        {tcFields.slice(0, 8).map((f, i) => (
-                          <div
-                            key={i}
-                            className="flex items-baseline gap-2 text-xs"
-                          >
-                            <span className="text-gray-400 w-4 flex-shrink-0">
-                              {i + 1}.
-                            </span>
-                            <span className="text-gray-700 font-medium flex-shrink-0">
-                              {f}:
-                            </span>
-                            <span className="flex-1 border-b border-dotted border-gray-300 min-w-0" />
-                          </div>
-                        ))}
-                        <p className="text-[10px] text-gray-400 italic text-center mt-2">
-                          ... and more fields
-                        </p>
-                      </div>
-
-                      {/* Signatures */}
-                      <div className="flex justify-between mt-6 pt-4 border-t border-gray-100 text-xs text-gray-500">
-                        <div className="text-center">
-                          <div className="h-8 border-b border-gray-300 w-24 mb-1" />
-                          <p>Class Teacher</p>
-                        </div>
-                        <div className="text-center">
-                          <div className="h-8 border-b border-gray-300 w-24 mb-1" />
-                          <p>Principal</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Download overlay */}
-                    <div
-                      className="absolute inset-0 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{
-                        background: "rgba(11,31,58,0.7)",
-                        backdropFilter: "blur(4px)",
-                      }}
-                    >
-                      <div className="text-center text-white">
-                        <RiDownloadLine className="text-4xl mx-auto mb-2 text-[#F4C300]" />
-                        <p className="font-bold text-sm">Download Sample TC</p>
-                        <p className="text-xs opacity-70 mt-0.5">PDF Format</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Download + Print buttons */}
-                  <div className="flex gap-3 mt-4">
-                    <button
-                      className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm transition cursor-pointer hover:opacity-90"
-                      style={{ background: "#0B1F3A", color: "white" }}
-                    >
-                      <RiDownloadLine /> Download Sample PDF
-                    </button>
-                    <button
-                      className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-semibold text-sm border transition cursor-pointer hover:bg-gray-50"
-                      style={{
-                        border: "1.5px solid #E2E8F0",
-                        color: "#0B1F3A",
-                      }}
-                    >
-                      <RiPrinterLine />
-                    </button>
-                  </div>
+          className="py-20 overflow-hidden"
+          style={{
+            background:
+              "linear-gradient(160deg,#F8FAFC 0%,#EFF6FF 60%,#F8FAFC 100%)",
+            fontFamily: "'DM Sans',sans-serif",
+          }}
+        >
+          <div className="max-w-6xl mx-auto px-6">
+            {/* ── Top 2-col layout ── */}
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              {/* LEFT — TC Sample Preview */}
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <RiFileTextLine className="text-[#1A56A0] text-xl" />
+                  <h3 className="font-bold text-[#0B1F3A] text-base">
+                    Sample Certificate
+                  </h3>
                 </div>
-
-                {/* RIGHT — Info Cards */}
-                <div className="space-y-5">
-                  {/* Time info */}
-                  <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div
-                        className="w-10 h-10 rounded-xl flex items-center justify-center"
-                        style={{ background: "#E6F1FB" }}
-                      >
-                        <RiTimeLine className="text-[#1A56A0] text-lg" />
-                      </div>
-                      <h4 className="font-bold text-[#0B1F3A] text-sm">
-                        Processing Time
-                      </h4>
-                    </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      {[
-                        { label: "Application to TC", value: "7 Working Days" },
-                        { label: "Office Hours", value: "Mon – Sat" },
-                        { label: "Time", value: "9:00 AM – 1:00 PM" },
-                        { label: "Fee", value: "No Charges" },
-                      ].map((s, i) => (
-                        <div
-                          key={i}
-                          className="rounded-xl p-3"
-                          style={{ background: "#F8FAFC" }}
-                        >
-                          <p className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold mb-0.5">
-                            {s.label}
-                          </p>
-                          <p className="text-sm font-bold text-[#0B1F3A]">
-                            {s.value}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Required documents */}
-                  <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div
-                        className="w-10 h-10 rounded-xl flex items-center justify-center"
-                        style={{ background: "#ECFDF5" }}
-                      >
-                        <RiCheckboxCircleLine className="text-emerald-600 text-lg" />
-                      </div>
-                      <h4 className="font-bold text-[#0B1F3A] text-sm">
-                        Required Documents
-                      </h4>
-                    </div>
-                    <ul className="space-y-2">
-                      {docs.map((d, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-2.5 text-sm text-gray-600"
-                        >
-                          <RiArrowRightLine className="text-[#1A56A0] flex-shrink-0 mt-0.5 text-base" />
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Contact */}
-                  <div
-                    className="rounded-2xl p-5"
-                    style={{ background: "#0B1F3A" }}
-                  >
-                    <p
-                      className="text-xs font-bold uppercase tracking-wider mb-3"
-                      style={{ color: "#F4C300" }}
-                    >
-                      Need Help?
-                    </p>
-                    <div className="space-y-2">
-                      {[
-                        {
-                          icon: <RiPhoneLine />,
-                          val: "02566-246574 / +91 9527084764",
-                        },
-                        {
-                          icon: <RiMailLine />,
-                          val: "rotaryenglishschool@yahoo.in",
-                        },
-                        {
-                          icon: <RiCalendarLine />,
-                          val: "Mon – Sat, 9:00 AM – 1:00 PM",
-                        },
-                      ].map((c, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center gap-2.5 text-sm"
-                          style={{ color: "rgba(255,255,255,0.75)" }}
-                        >
-                          <span style={{ color: "#60A5FA" }}>{c.icon}</span>
-                          {c.val}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* ── Process Steps ── */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10">
-                <h3
-                  className="font-bold text-[#0B1F3A] text-lg mb-6 text-center"
-                  style={{ fontFamily: "'Playfair Display',serif" }}
-                >
-                  How to Apply for TC
-                </h3>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                  {steps.map((s, i) => (
-                    <div key={i} className="relative">
-                      {/* Connector line */}
-                      {i < steps.length - 1 && (
-                        <div
-                          className="hidden lg:block absolute top-8 left-full w-full h-0.5 -translate-y-1/2 z-0"
-                          style={{
-                            background:
-                              "linear-gradient(90deg, #E2E8F0, #CBD5E1)",
-                            width: "calc(100% - 2rem)",
-                            left: "calc(50% + 1.5rem)",
-                          }}
-                        />
-                      )}
-                      <div className="relative z-10 text-center">
-                        <div
-                          className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl text-white mx-auto mb-3 shadow-md"
-                          style={{
-                            background: `linear-gradient(135deg, ${s.color}, ${s.color}bb)`,
-                          }}
-                        >
-                          {s.icon}
-                        </div>
-                        <span
-                          className="text-xs font-black tracking-wider"
-                          style={{ color: s.color }}
-                        >
-                          STEP {s.step}
-                        </span>
-                        <h4 className="font-bold text-[#0B1F3A] text-sm mt-1 mb-2">
-                          {s.title}
-                        </h4>
-                        <p className="text-xs text-gray-500 leading-relaxed">
-                          {s.desc}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* ── TC Fields on Certificate ── */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center"
-                    style={{ background: "#E6F1FB" }}
-                  >
-                    <RiIdCardLine className="text-[#1A56A0] text-lg" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-[#0B1F3A] text-base">
-                      Fields Mentioned in TC
-                    </h3>
-                    <p className="text-xs text-gray-400">
-                      All fields as per CBSE norms
-                    </p>
-                  </div>
-                </div>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {tcFields.map((f, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-2.5 py-2 px-3 rounded-xl"
-                      style={{ background: "#F8FAFC" }}
-                    >
-                      <span className="text-xs font-black text-gray-300 w-5 flex-shrink-0">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="text-xs font-medium text-gray-700">
-                        {f}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* ── Apply Online Form ── */}
-              <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm mb-10">
                 <div
-                  className="px-8 py-5 flex items-center justify-between cursor-pointer"
-                  style={{ background: "#0B1F3A" }}
-                  onClick={() => setShowForm(!showForm)}
+                  className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg cursor-pointer group relative"
+                  style={{ background: "white" }}
                 >
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center"
-                      style={{ background: "rgba(255,255,255,0.1)" }}
-                    >
-                      <RiUserLine className="text-[#F4C300] text-lg" />
+                  {Tc.map((t, i) => (
+                    <div key={i}>
+                      <div className="p-6">
+                        <img src={t.TranferCerticate} alt="" />
+                      </div>
+                      <div>
+                        <button className="w-full px-3 py-4">
+                          <a href={t.TranferCerticate}>Download Sample TC</a>
+                        </button>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-bold text-white text-base">
-                        Apply for Transfer Certificate
-                      </p>
-                      <p
-                        className="text-xs"
-                        style={{ color: "rgba(255,255,255,0.5)" }}
-                      >
-                        Fill in details below — school will contact you
-                      </p>
-                    </div>
-                  </div>
-                  <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-300"
+                  ))}
+                </div>
+
+                {/* Download + Print buttons */}
+                <div className="flex gap-3 mt-4">
+                  <button
+                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm transition cursor-pointer hover:opacity-90"
+                    style={{ background: "#0B1F3A", color: "white" }}
+                  >
+                    <RiDownloadLine /> Download Sample PDF
+                  </button>
+                  <button
+                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-semibold text-sm border transition cursor-pointer hover:bg-gray-50"
                     style={{
-                      background: "rgba(255,255,255,0.1)",
-                      transform: showForm ? "rotate(90deg)" : "rotate(0deg)",
+                      border: "1.5px solid #E2E8F0",
+                      color: "#0B1F3A",
                     }}
                   >
-                    <RiArrowRightLine className="text-white" />
-                  </div>
-                </div>
-
-                {/* Form */}
-                <div
-                  className="overflow-hidden transition-all duration-500"
-                  style={{ maxHeight: showForm ? "800px" : "0px" }}
-                >
-                  <div className="p-8 bg-white">
-                    {submitted ? (
-                      <div className="text-center py-10">
-                        <div
-                          className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                          style={{ background: "#ECFDF5" }}
-                        >
-                          <RiCheckboxCircleLine className="text-emerald-500 text-3xl" />
-                        </div>
-                        <h4
-                          className="font-bold text-[#0B1F3A] text-lg mb-2"
-                          style={{ fontFamily: "'Playfair Display',serif" }}
-                        >
-                          Request Submitted!
-                        </h4>
-                        <p className="text-gray-500 text-sm max-w-sm mx-auto leading-relaxed">
-                          Your TC application has been received. The school
-                          office will contact you within 2 working days.
-                        </p>
-                        <button
-                          className="mt-5 px-6 py-2.5 rounded-xl font-semibold text-sm cursor-pointer"
-                          style={{ background: "#0B1F3A", color: "white" }}
-                          onClick={() => {
-                            setSubmitted(false);
-                            setForm({
-                              studentName: "",
-                              admissionNo: "",
-                              class: "",
-                              parentName: "",
-                              phone: "",
-                              reason: "",
-                            });
-                          }}
-                        >
-                          Submit Another Request
-                        </button>
-                      </div>
-                    ) : (
-                      <form onSubmit={handleSubmit}>
-                        <div className="grid sm:grid-cols-2 gap-5 mb-5">
-                          {[
-                            {
-                              key: "studentName",
-                              label: "Student's Full Name",
-                              placeholder: "Enter full name",
-                              required: true,
-                            },
-                            {
-                              key: "admissionNo",
-                              label: "Admission Number",
-                              placeholder: "e.g. 2024/001",
-                              required: true,
-                            },
-                            {
-                              key: "class",
-                              label: "Current / Last Class",
-                              placeholder: "e.g. Class X – Div A",
-                              required: true,
-                            },
-                            {
-                              key: "parentName",
-                              label: "Parent / Guardian Name",
-                              placeholder: "Enter name",
-                              required: true,
-                            },
-                            {
-                              key: "phone",
-                              label: "Contact Number",
-                              placeholder: "+91 XXXXXXXXXX",
-                              required: true,
-                            },
-                          ].map((f) => (
-                            <div key={f.key}>
-                              <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">
-                                {f.label}{" "}
-                                {f.required && (
-                                  <span style={{ color: "#EF4444" }}>*</span>
-                                )}
-                              </label>
-                              <input
-                                type="text"
-                                required={f.required}
-                                placeholder={f.placeholder}
-                                value={form[f.key]}
-                                onChange={(e) =>
-                                  setForm({ ...form, [f.key]: e.target.value })
-                                }
-                                className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:border-[#1A56A0] transition"
-                              />
-                            </div>
-                          ))}
-                          <div>
-                            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">
-                              Reason for Leaving{" "}
-                              <span style={{ color: "#EF4444" }}>*</span>
-                            </label>
-                            <select
-                              required
-                              value={form.reason}
-                              onChange={(e) =>
-                                setForm({ ...form, reason: e.target.value })
-                              }
-                              className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:border-[#1A56A0] transition bg-white"
-                            >
-                              <option value="">Select reason</option>
-                              <option>Transfer to another city</option>
-                              <option>Admission to another school</option>
-                              <option>Completed schooling (Class X)</option>
-                              <option>Family relocation</option>
-                              <option>Other</option>
-                            </select>
-                          </div>
-                        </div>
-
-                        {/* Note */}
-                        <div className="flex gap-2.5 items-start bg-amber-50 border border-amber-100 rounded-xl px-4 py-3 mb-6">
-                          <RiInformationLine className="text-amber-500 flex-shrink-0 mt-0.5" />
-                          <p className="text-xs text-amber-700 leading-relaxed">
-                            This is an online request form only. Please visit
-                            the school office with original documents to collect
-                            the TC. Processing takes 7 working days.
-                          </p>
-                        </div>
-
-                        <button
-                          type="submit"
-                          className="w-full py-3.5 rounded-xl font-bold text-sm transition cursor-pointer hover:opacity-90"
-                          style={{ background: "#0B1F3A", color: "white" }}
-                        >
-                          Submit TC Request →
-                        </button>
-                      </form>
-                    )}
-                  </div>
+                    <RiPrinterLine />
+                  </button>
                 </div>
               </div>
 
-              {/* ── Important Note ── */}
-              <div className="flex gap-3 items-start bg-blue-50 border border-blue-100 rounded-2xl px-6 py-5">
-                <RiInformationLine className="text-[#1A56A0] text-xl flex-shrink-0 mt-0.5" />
-                <div className="text-sm text-[#1A56A0] leading-relaxed">
-                  <p className="font-bold mb-1">Important Notes</p>
-                  <ul className="space-y-1 text-blue-700">
-                    <li>
-                      • TC once issued will not be reissued. Keep it safe.
-                    </li>
-                    <li>
-                      • Duplicate TC can be issued only in case of loss with a
-                      formal written application and applicable charges.
-                    </li>
-                    <li>
-                      • TC is mandatory for admission in any other CBSE school.
-                    </li>
-                    <li>
-                      • Students with pending dues / library books will not be
-                      issued TC.
-                    </li>
+              {/* RIGHT — Info Cards */}
+              <div className="space-y-5">
+                {/* Time info */}
+                <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center"
+                      style={{ background: "#E6F1FB" }}
+                    >
+                      <RiTimeLine className="text-[#1A56A0] text-lg" />
+                    </div>
+                    <h4 className="font-bold text-[#0B1F3A] text-sm">
+                      Processing Time
+                    </h4>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      { label: "Application to TC", value: "7 Working Days" },
+                      { label: "Office Hours", value: "Mon – Sat" },
+                      { label: "Time", value: "9:00 AM – 1:00 PM" },
+                      { label: "Fee", value: "No Charges" },
+                    ].map((s, i) => (
+                      <div
+                        key={i}
+                        className="rounded-xl p-3"
+                        style={{ background: "#F8FAFC" }}
+                      >
+                        <p className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold mb-0.5">
+                          {s.label}
+                        </p>
+                        <p className="text-sm font-bold text-[#0B1F3A]">
+                          {s.value}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Required documents */}
+                <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center"
+                      style={{ background: "#ECFDF5" }}
+                    >
+                      <RiCheckboxCircleLine className="text-emerald-600 text-lg" />
+                    </div>
+                    <h4 className="font-bold text-[#0B1F3A] text-sm">
+                      Required Documents
+                    </h4>
+                  </div>
+                  <ul className="space-y-2">
+                    {docs.map((d, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-2.5 text-sm text-gray-600"
+                      >
+                        <RiArrowRightLine className="text-[#1A56A0] flex-shrink-0 mt-0.5 text-base" />
+                        {d}
+                      </li>
+                    ))}
                   </ul>
+                </div>
+
+                {/* Contact */}
+                <div
+                  className="rounded-2xl p-5"
+                  style={{ background: "#0B1F3A" }}
+                >
+                  <p
+                    className="text-xs font-bold uppercase tracking-wider mb-3"
+                    style={{ color: "#F4C300" }}
+                  >
+                    Need Help?
+                  </p>
+                  <div className="space-y-2">
+                    {[
+                      {
+                        icon: <RiPhoneLine />,
+                        val: "02566-246574 / +91 9527084764",
+                      },
+                      {
+                        icon: <RiMailLine />,
+                        val: "rotaryenglishschool@yahoo.in",
+                      },
+                      {
+                        icon: <RiCalendarLine />,
+                        val: "Mon – Sat, 9:00 AM – 1:00 PM",
+                      },
+                    ].map((c, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-2.5 text-sm"
+                        style={{ color: "rgba(255,255,255,0.75)" }}
+                      >
+                        <span style={{ color: "#60A5FA" }}>{c.icon}</span>
+                        {c.val}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </section>
+
+            {/* ── Process Steps ── */}
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10">
+              <h3
+                className="font-bold text-[#0B1F3A] text-lg mb-6 text-center"
+                style={{ fontFamily: "'Playfair Display',serif" }}
+              >
+                How to Apply for TC
+              </h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {steps.map((s, i) => (
+                  <div key={i} className="relative">
+                    {/* Connector line */}
+                    {i < steps.length - 1 && (
+                      <div
+                        className="hidden lg:block absolute top-8 left-full w-full h-0.5 -translate-y-1/2 z-0"
+                        style={{
+                          background:
+                            "linear-gradient(90deg, #E2E8F0, #CBD5E1)",
+                          width: "calc(100% - 2rem)",
+                          left: "calc(50% + 1.5rem)",
+                        }}
+                      />
+                    )}
+                    <div className="relative z-10 text-center">
+                      <div
+                        className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl text-white mx-auto mb-3 shadow-md"
+                        style={{
+                          background: `linear-gradient(135deg, ${s.color}, ${s.color}bb)`,
+                        }}
+                      >
+                        {s.icon}
+                      </div>
+                      <span
+                        className="text-xs font-black tracking-wider"
+                        style={{ color: s.color }}
+                      >
+                        STEP {s.step}
+                      </span>
+                      <h4 className="font-bold text-[#0B1F3A] text-sm mt-1 mb-2">
+                        {s.title}
+                      </h4>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        {s.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* ── TC Fields on Certificate ── */}
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mb-10">
+              <div className="flex items-center gap-3 mb-6">
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center"
+                  style={{ background: "#E6F1FB" }}
+                >
+                  <RiIdCardLine className="text-[#1A56A0] text-lg" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#0B1F3A] text-base">
+                    Fields Mentioned in TC
+                  </h3>
+                  <p className="text-xs text-gray-400">
+                    All fields as per CBSE norms
+                  </p>
+                </div>
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {tcFields.map((f, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-2.5 py-2 px-3 rounded-xl"
+                    style={{ background: "#F8FAFC" }}
+                  >
+                    <span className="text-xs font-black text-gray-300 w-5 flex-shrink-0">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-xs font-medium text-gray-700">
+                      {f}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* ── Important Note ── */}
+            <div className="flex gap-3 items-start bg-blue-50 border border-blue-100 rounded-2xl px-6 py-5">
+              <RiInformationLine className="text-[#1A56A0] text-xl flex-shrink-0 mt-0.5" />
+              <div className="text-sm text-[#1A56A0] leading-relaxed">
+                <p className="font-bold mb-1">Important Notes</p>
+                <ul className="space-y-1 text-blue-700">
+                  <li>• TC once issued will not be reissued. Keep it safe.</li>
+                  <li>
+                    • Duplicate TC can be issued only in case of loss with a
+                    formal written application and applicable charges.
+                  </li>
+                  <li>
+                    • TC is mandatory for admission in any other CBSE school.
+                  </li>
+                  <li>
+                    • Students with pending dues / library books will not be
+                    issued TC.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
     </>
   );

@@ -7,15 +7,32 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import Heading from "../components/common/Heading";
 import FacilitiesCard from "../components/FacilitiesCard";
 import Calendar from "../components/Calendar";
-// import { RiComputerLine } from "react-icons/ri";
-// import { GiGraduateCap } from "react-icons/gi";
-// import { FaTrophy } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import NotificationPopup from "../components/notification/NotificationPopup";
+import FloatingBell from "../components/notification/FloatingBell";
+import FloatingQuickLinks from "../components/FloatingQuickLinks ";
 
 const Home = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
       <div className="relative w-full h-screen overflow-hidden">
+        <NotificationPopup
+          show={showPopup}
+          onClose={() => setShowPopup(false)}
+        />
+
+        <FloatingBell onClick={() => setShowPopup(true)} />
         <Navbar transparent />
+        <FloatingQuickLinks />
         <video
           autoPlay
           playsInline
@@ -64,7 +81,7 @@ const Home = () => {
       <FacilitiesCard />
 
       {/* Academic Calendar */}
-     <Calendar />
+      <Calendar />
 
       <section className="relative overflow-hidden bg-gradient-to-r from-[#005DAA] via-[#003B6D] to-[#0B1736] py-10">
         {/* Background Circle */}
@@ -84,7 +101,7 @@ const Home = () => {
           mb-6
         "
               >
-                Admissions Open for 2026–27
+                Admissions Open
               </h2>
 
               <p

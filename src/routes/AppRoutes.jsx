@@ -21,6 +21,11 @@ import Press_Release from "../pages/StudentCorner/Press_Release"
 import MandatoryDisclosureDetails from "../pages/StudentCorner/MandatoryDisclosureDetails"
 import Contact from "../pages/Contact"
 import Gallery from "../pages/Gallery"
+import Activities from "../pages/Activities"
+import Admission from "../pages/Admission"
+import NotificationPage from "../pages/NotificationPage"
+import PrePrimaryDondaicha from "../pages/PrePrimaryDondaicha"
+import PrePrimaryNimgul from "../pages/PrePrimaryNimgul"
 
 const AppRoutes = () => {
   
@@ -34,6 +39,9 @@ const AppRoutes = () => {
             <Route path="/principal-message" element={<PrincipleMessage/>}/>
             <Route path="/management-committee" element={<ManagementCommittee/>}/>
 
+            {/* Activities */}
+            <Route path="/activities" element={<Activities/>}/>
+
             {/* Academic Calendar */}
             <Route path="/academicCalendar" element={<AcademicCalendar/>}/>
             <Route path="/classwise-textbooks" element={<ClasswiseTextbookDetails/>}/>
@@ -41,6 +49,9 @@ const AppRoutes = () => {
             <Route path="/parentTeacherAssociation" element={<ParentTeacherAssociation/>}/>
             <Route path="/curriculum" element={<Curriculum/>}/>
             <Route path="/fees-structure" element={<FeesStructure/>} />
+
+            {/* Facilities */}
+            <Route path="/facilities" element={<Facilities/>}/>
 
             {/* Student Corner */}
             <Route path="/achievement" element={<Achievement/>} />
@@ -54,7 +65,15 @@ const AppRoutes = () => {
 
             <Route path="/contact" element={<Contact/>}/>
 
-            <Route path="/facilities" element={<Facilities/>}/>
+            {/* Admission */}
+            <Route path="/admission" element={<Admission/>}/>
+
+            {/* Notification */}
+            <Route path="/notification" element={<NotificationPage/>}/>
+
+            {/* Pre Primary */}
+            <Route path="/pre-primary-dondaicha" element={<PrePrimaryDondaicha/>}/>
+            <Route path="/pre-primary-nimgul" element={<PrePrimaryNimgul/>}/>
         </Routes>
     </>
   )

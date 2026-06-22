@@ -4,7 +4,6 @@ import {
   RiCloseLine,
   RiArrowLeftLine,
   RiArrowRightLine,
-  RiFullscreenLine,
   RiSearchLine,
   RiGridLine,
   RiLayoutMasonryLine,
